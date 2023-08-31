@@ -46,8 +46,55 @@ body{
 
 .calculator{
     flex:4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.calculatorbody{
+    height: 85%;
+    width: 40%;
     border: 2px solid red;
     display: flex;
     justify-content: center;
-    padding-top: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: centers;
+    
 }
+
+
+.display{
+    padding-right: 25px;
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+}
+
+.buttons{
+    padding-left: 23px;
+    padding-bottom: 20px;
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.digits{
+    height: 70px;
+    width: 130px;
+
+}
+
+.c{
+    width: 422px;
+}
+
+.equal{
+    width: 276px;
+
+}
+

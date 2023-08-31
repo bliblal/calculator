@@ -33,6 +33,11 @@ function operate(n1,n2,operator){
     }
 }
 
+function populateDisplay(n){
+    let display=document.querySelector(".display");
+    display.textContent=n;
+}
+
 
 /*
 console.log( add(5,2));
@@ -44,4 +49,5 @@ console.log( divide(5,2));
 let number1;
 let number2;
 let operator;
+let displayvalue=0;
 
