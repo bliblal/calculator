@@ -26,7 +26,7 @@ function operate(n1,n2,operator){
             return multiply(n1,n2);
             break;
         case "/":
-            return divide(n1,n2):
+            return divide(n1,n2);
             break;
         default:
             return "ERROR";
