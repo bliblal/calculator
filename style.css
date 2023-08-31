@@ -1,0 +1,53 @@
+.header{
+    border: 2px solid red;
+}
+
+.footer{
+    border: 2px solid red;
+}
+
+.content{
+    border: 2px solid red;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+.header{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content{
+    flex: 4;
+    display: flex;
+}
+
+.footer{
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar{
+    flex: 1;
+    border: 2px solid red;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 40px;
+}
+
+.calculator{
+    flex:4;
+    border: 2px solid red;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
