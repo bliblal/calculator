@@ -8,15 +8,6 @@ let calcData={
 
 };
 
-let calcDataRef={
-    n1: '',
-    n2: '',
-    operator: '',
-    firstNumber: true,
-    secondNumber: false,
-    result: '',
-
-};
 
 function add(a,b){
     return a+b;
@@ -42,10 +33,10 @@ function operate(n1,n2,operator){
         case "-":
             return subtract(n1,n2);
             break;
-        case "*":
+        case "x":
             return multiply(n1,n2);
             break;
-        case "/":
+        case "÷":
             return divide(n1,n2);
             break;
         default:
@@ -83,8 +74,25 @@ function digitpress(e){
 
 
 function operatorPress(e){
-    if (calcData.secondNumber){
-        //calculate result
+
+    if (calcData.result){
+        calcData.n1=calcData.result;
+        calcData.operator=e.target.textContent;
+        calcData.firstNumber=false;
+        calcData.secondNumber=true;
+        
+    }
+
+
+    if (calcData.secondNumber && !calcData.result){
+        let result=operate(Number(calcData.n1),Number(calcData.n2),calcData.operator);
+        console.log(result);
+        populateDisplay(result);
+        calcData.n1=result;
+        calcData.n2='';
+        calcData.operator=e.target.textContent;
+        calcData.secondNumber=true;
+
     }
 
     if (calcData.firstNumber){
@@ -103,23 +111,7 @@ function calculateResult(e){
 
     if (calcData.secondNumber){
         let result;
-        switch(calcData.operator){
-            
-            case "+":
-                result=Number(calcData.n1)+Number(calcData.n2);
-                break;
-            case "-":
-                result=Number(calcData.n1)-Number(calcData.n2);
-                break;
-            
-            case "x":
-                result=Number(calcData.n1)*Number(calcData.n2);
-                break;
-        
-            case "÷":
-                result=Number(calcData.n1)/Number(calcData.n2);
-                break;
-        }
+        result=operate(Number(calcData.n1),Number(calcData.n2),calcData.operator);
 
         populateDisplay(result);
         calcData.result=result;
