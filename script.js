@@ -8,6 +8,16 @@ let calcData={
 
 };
 
+let calcDataRef={
+    n1: '',
+    n2: '',
+    operator: '',
+    firstNumber: true,
+    secondNumber: false,
+    result: '',
+
+};
+
 
 function add(a,b){
     return a+b;
@@ -74,28 +84,29 @@ function digitpress(e){
 
 
 function operatorPress(e){
-
-    if (calcData.result){
-        calcData.n1=calcData.result;
+    if (calcData.firstNumber){
         calcData.operator=e.target.textContent;
         calcData.firstNumber=false;
         calcData.secondNumber=true;
-        
     }
 
-
-    if (calcData.secondNumber && !calcData.result){
-        let result=operate(Number(calcData.n1),Number(calcData.n2),calcData.operator);
-        console.log(result);
-        populateDisplay(result);
-        calcData.n1=result;
-        calcData.n2='';
+    else if (calcData.n2=='' && calcData.operator != ''){
         calcData.operator=e.target.textContent;
-        calcData.secondNumber=true;
-
     }
 
-    if (calcData.firstNumber){
+    if (calcData.result != '' && calcData.n1=='' && calcData.n2=='' ){
+        calcData.n1=calcData.result;
+        calcData.result='';
+        calcData.firstNumber=false;
+        calcData.secondNumber=true;
+        calcData.operator=e.target.textContent;
+    }
+
+    if (calcData.n1 != '' && calcData.n2 != ''){
+        let i=(operate(Number(calcData.n1),Number(calcData.n2),calcData.operator));
+        populateDisplay(i);
+        calcData.n1=i;
+        calcData.n2='';
         calcData.operator=e.target.textContent;
         calcData.firstNumber=false;
         calcData.secondNumber=true;
@@ -124,17 +135,11 @@ function calculateResult(e){
 }
 
 
+function clearState(){
+    calcData=calcDataRef;
+    populateDisplay(0);
+}
 
-
-/*
-console.log( add(5,2));
-console.log( subtract(5,2));
-console.log( multiply(5,2));
-console.log( divide(5,2));
-*/
-
-
-let displayvalue=0;
 
 //Buttons selector
 let digits=document.querySelectorAll(".num");
@@ -155,3 +160,38 @@ let equal=document.querySelector(".equal");
 
 //equal event listener
 equal.addEventListener("click",calculateResult);
+
+//clear button
+let clear = document.querySelector(".c");
+clear.addEventListener("click",clearState);
+
+
+
+/*
+    if (calcData.result){
+        calcData.n1=calcData.result;
+        calcData.operator=e.target.textContent;
+        calcData.firstNumber=false;
+        calcData.secondNumber=true;
+        
+    }
+
+
+    if (calcData.secondNumber && !calcData.result){
+        let result=operate(Number(calcData.n1),Number(calcData.n2),calcData.operator);
+        console.log(result);
+        populateDisplay(result);
+        calcData.n1=result;
+        calcData.n2='';
+        calcData.operator=e.target.textContent;
+        calcData.secondNumber=true;
+
+    }
+
+    if (calcData.firstNumber){
+        calcData.operator=e.target.textContent;
+        calcData.firstNumber=false;
+        calcData.secondNumber=true;
+    }
+
+    */
