@@ -5,6 +5,7 @@ let calcData={
     firstNumber: true,
     secondNumber: false,
     result: '',
+    dotPressed: false,
 
 };
 
@@ -15,6 +16,7 @@ let calcDataRef={
     firstNumber: true,
     secondNumber: false,
     result: '',
+    dotPressed: false,
 
 };
 
@@ -60,6 +62,7 @@ function populateDisplay(n){
 }
 
 function digitpress(e){
+    console.log(e);
     if (calcData.firstNumber){
         let a=calcData.n1;
         let b=Number(e.target.textContent);
@@ -78,6 +81,33 @@ function digitpress(e){
         populateDisplay(y);
         calcData.n2=y;
 
+    }
+
+}
+
+
+function dotPress(e){
+    console.log(e);
+    if (!calcData.dotPressed){
+        if(calcData.firstNumber){
+            let j=calcData.n1;
+            let k= e.target.textContent;
+            let l= `${j}${k}`;
+            console.log(l);
+            populateDisplay(l);
+            calcData.n1=l;
+        }
+
+        else if(calcData.secondNumber){
+            let j=calcData.n2;
+            let k= e.target.textContent;
+            let l= `${j}${k}`;
+            populateDisplay(l);
+            calcData.n2=l;
+        }
+
+
+        calcData.dotPressed=true;
     }
 
 }
@@ -111,6 +141,8 @@ function operatorPress(e){
         calcData.firstNumber=false;
         calcData.secondNumber=true;
     }
+
+    calcData.dotPressed=false;
 }
 
 function calculateResult(e){
@@ -165,33 +197,8 @@ equal.addEventListener("click",calculateResult);
 let clear = document.querySelector(".c");
 clear.addEventListener("click",clearState);
 
+//period selector
+period=document.querySelector(".dot");
 
-
-/*
-    if (calcData.result){
-        calcData.n1=calcData.result;
-        calcData.operator=e.target.textContent;
-        calcData.firstNumber=false;
-        calcData.secondNumber=true;
-        
-    }
-
-
-    if (calcData.secondNumber && !calcData.result){
-        let result=operate(Number(calcData.n1),Number(calcData.n2),calcData.operator);
-        console.log(result);
-        populateDisplay(result);
-        calcData.n1=result;
-        calcData.n2='';
-        calcData.operator=e.target.textContent;
-        calcData.secondNumber=true;
-
-    }
-
-    if (calcData.firstNumber){
-        calcData.operator=e.target.textContent;
-        calcData.firstNumber=false;
-        calcData.secondNumber=true;
-    }
-
-    */
+//period event listener
+period.addEventListener("click",dotPress);

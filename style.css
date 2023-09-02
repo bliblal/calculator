@@ -30,7 +30,7 @@ body{
 }
 
 .footer{
-    flex: 0.5;
+    flex: 0.7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@ body{
 
 .calculatorbody{
     height: 85%;
-    width: 40%;
+    width: 35%;
     border: 2px solid red;
     display: flex;
     justify-content: center;
