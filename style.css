@@ -1,20 +1,26 @@
+@font-face{
+    font-family:'digital-font';
+    src: url('./fonts/digital-7\ \(mono\).ttf');
+}
+
+@font-face{
+    font-family:'roboto';
+    src: url('./fonts/Roboto-Bold.ttf');
+}
+
+
 .header{
-    border: 2px solid red;
+    font-family: roboto;
+    font-size: 150px;
 }
 
-.footer{
-    border: 2px solid red;
-}
-
-.content{
-    border: 2px solid red;
-}
 
 body{
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    background-color: #f6f6f6;
 }
 
 .header{
@@ -27,6 +33,10 @@ body{
 .content{
     flex: 4;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 1900px;
 }
 
 .footer{
@@ -34,48 +44,43 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 15px;
 }
 
-.sidebar{
-    flex: 1;
-    border: 2px solid red;
-    display: flex;
-    justify-content: space-around;
-    padding-top: 40px;
-}
 
-.calculator{
-    flex:4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
 
 .calculatorbody{
-    height: 85%;
-    width: 35%;
-    border: 2px solid red;
+    padding: 15px;
+    height: 600px;
+    width: 600px;
+    border: 6px solid #333;
     display: flex;
     justify-content: center;
     flex-direction: column;
     justify-content: center;
     align-items: centers;
+    border-radius: 5px;
+    background-color: #aaa;
     
 }
 
 
 .display{
-    padding-right: 25px;
+    margin: 10px;
     flex: 1;
     display: flex;
     justify-content: end;
+    padding-right: 10px;
     align-items: center;
-
-}
+    font-family: digital-font;
+    font-size: 120px;
+    font-weight: 600;
+    background-color: #eee;}
 
 .buttons{
-    padding-left: 23px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
     padding-bottom: 20px;
     flex: 3;
     display: flex;
@@ -86,7 +91,15 @@ body{
 .digits{
     height: 70px;
     width: 130px;
+    border-radius: 5px;
+    background-color: #eee;
+    font-family: roboto;
+    font-size: 25px;
 
+}
+
+.c{
+    background-color: #faa;
 }
 
 .c{
@@ -95,6 +108,20 @@ body{
 
 .equal{
     width: 276px;
+    background-color: #B6D0E2;
 
 }
 
+.links{
+    font-family: roboto;
+    font-size: 25px;
+}
+
+a{
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+img{
+    vertical-align: middle;
+}
