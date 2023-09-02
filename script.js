@@ -283,6 +283,8 @@ function calculateResultK(e){
     calcData.n2='';
 }
 
+
+
 //Buttons selector
 let digits=document.querySelectorAll(".num");
 
@@ -347,6 +349,10 @@ function keyPress(e){
 
     if(k==="Enter"){
         calculateResultK(k);
+    }
+
+    if(k==='Delete'){
+        clearState();
     }
 
 
